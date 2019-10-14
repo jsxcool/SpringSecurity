@@ -1,6 +1,7 @@
 package com.jsx.learnSecurity.others;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.crypto.bcrypt.BCrypt;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -23,6 +24,7 @@ public class Controllers {
 	@PostMapping("/userRegister")
 	String register(@ModelAttribute User u) {
 		u.getProfiles().add(new UserProfile(1, "user"));
+		u.setPassword(BCrypt.hashpw(u.getPassword(), BCrypt.gensalt()));
 		dao.save(u);
 		return "login";
 	}

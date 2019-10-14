@@ -19,7 +19,7 @@ import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 
 @Entity
-@Table(name = "security_user")
+@Table(name="user")
 public class User implements UserDetails {
 	private static final long serialVersionUID = 1L;
 	@Id
@@ -39,6 +39,21 @@ public class User implements UserDetails {
 					@JoinColumn(name = "role_id", referencedColumnName = "id") })
 	*/
 	private Set<UserProfile> profiles = new HashSet<UserProfile>();
+	
+	public User() {
+		super();
+		// TODO Auto-generated constructor stub
+	}
+
+
+	public User(int id, String username, String password) {
+		super();
+		this.id = id;
+		this.username = username;
+		this.password = password;
+	}
+
+
 
 	public int getId() {
 		return id;
