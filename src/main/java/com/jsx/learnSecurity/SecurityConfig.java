@@ -27,6 +27,11 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
             .authorizeRequests()
             	// url '/', '/home' are configured not require any authentication
                 .antMatchers("/", "/home", "/userRegister").permitAll()
+                
+                // authority management
+                .antMatchers("/authority").access("hasRole('user')")
+                //.antMatchers("/authority").hasRole("user")
+             
                 // any other paths must be authenticated 
                 // (go to login -- authorize by spring)
                 .anyRequest().authenticated()
