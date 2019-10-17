@@ -12,7 +12,8 @@ import org.springframework.security.core.GrantedAuthority;
 
 @Entity
 @Table(name = "profile")
-public class UserProfile implements GrantedAuthority {
+public class UserProfile   // implements GrantedAuthority 
+{
 
 	private static final long serialVersionUID = 1L;
 	@Id
@@ -61,12 +62,12 @@ public class UserProfile implements GrantedAuthority {
 	public void setUsers(Set<User> users) {
 		this.users = users;
 	}
-
+/*
 	@Override
 	public String getAuthority() {
 		return type;
 	}
-
+*/
 	@Override
 	public String toString() {
 		return "UserProfile [id=" + id + ", type=" + type + "]";

@@ -20,7 +20,8 @@ import org.springframework.security.core.userdetails.UserDetails;
 
 @Entity
 @Table(name="user")
-public class User implements UserDetails {
+public class User  // implements UserDetails 
+	{
 	private static final long serialVersionUID = 1L;
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
@@ -71,6 +72,16 @@ public class User implements UserDetails {
 		this.profiles = profiles;
 	}
 
+	public String getPassword() {
+		// TODO Auto-generated method stub
+		return password;
+	}
+
+	public String getUsername() {
+		// TODO Auto-generated method stub
+		return username;
+	}
+	
 	public void setUsername(String username) {
 		this.username = username;
 	}
@@ -79,22 +90,11 @@ public class User implements UserDetails {
 		this.password = password;
 	}
 
+	/*
 	@Override
 	public Collection<? extends GrantedAuthority> getAuthorities() {
 		// TODO Auto-generated method stub
 		return profiles;
-	}
-
-	@Override
-	public String getPassword() {
-		// TODO Auto-generated method stub
-		return password;
-	}
-
-	@Override
-	public String getUsername() {
-		// TODO Auto-generated method stub
-		return username;
 	}
 
 	@Override
@@ -120,6 +120,7 @@ public class User implements UserDetails {
 		// TODO Auto-generated method stub
 		return true;
 	}
+	*/
 
 	@Override
 	public String toString() {
