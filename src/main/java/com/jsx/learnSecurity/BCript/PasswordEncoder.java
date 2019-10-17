@@ -10,7 +10,7 @@ public class PasswordEncoder {
 		String pw_hash = BCrypt.hashpw("123", hashLayer);
 		System.out.println(pw_hash);
 		
-		if(BCrypt.checkpw("jsx", "$2a$04$0U0TTBnNoqd6MZf9ildXb.7CVntdEzKueuaRte9SfnJzRUlj9tPxu"))
+		if(BCrypt.checkpw("123", "$2a$04$4HfEjhoOKspGpvqFx9up6ePOhzRWKK94UOfxwAl7wQ25QxfN2GrmK"))
 			System.out.println("It matches");
 		else
 		    System.out.println("It does not match");

@@ -29,7 +29,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                 .antMatchers("/", "/home", "/userRegister").permitAll()
                 
                 // authority management
-                .antMatchers("/authority").access("hasRole('user')")
+                .antMatchers("/authority").access("hasRole('admin')")
                 //.antMatchers("/authority").hasRole("user")
              
                 // any other paths must be authenticated 
@@ -74,6 +74,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 		PasswordEncoder encoder = new BCryptPasswordEncoder(11);
 		return encoder;
 	}
+	
 	
 	/*
     // autowire means config globally
