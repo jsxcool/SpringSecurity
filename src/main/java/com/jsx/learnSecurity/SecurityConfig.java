@@ -1,7 +1,5 @@
 package com.jsx.learnSecurity;
 
-import javax.sql.DataSource;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -65,25 +63,15 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
     @Override
 	protected void configure(AuthenticationManagerBuilder auth) throws Exception {
     	// AuthenticationManager gets the info of the exact User in DB
-		auth.userDetailsService(usi).passwordEncoder(bCriptEncoder());
+		auth.userDetailsService(usi).passwordEncoder(BCriptEncoder());
 		// authorize password by bCriptEncoder
     }
 
 	@Bean
-	public PasswordEncoder bCriptEncoder(){
+	public PasswordEncoder BCriptEncoder(){
 		PasswordEncoder encoder = new BCryptPasswordEncoder(11);
 		return encoder;
 	}
-	
-	
-	/*
-    // autowire means config globally
-	@Autowired
-	public void configureGlobal(AuthenticationManagerBuilder auth) throws Exception {
-	    auth.userDetailsService(uds);
-	    //.passwordEncoder(passwordEncoder());
-	}
-	*/
 	
 
 }
